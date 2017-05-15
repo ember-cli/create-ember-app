@@ -13,6 +13,9 @@
   },
   "license": "MIT",
   "author": "Tobias Bieniek <tobias.bieniek@gmail.com>",
+  "files": [
+    "index.js"
+  ],
   "bin": {
     "create-ember-app": "index.js"
   },
