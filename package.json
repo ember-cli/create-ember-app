@@ -13,7 +13,9 @@
   },
   "license": "MIT",
   "author": "Tobias Bieniek <tobias.bieniek@gmail.com>",
-  "main": "index.js",
+  "bin": {
+    "create-ember-app": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ember-cli/create-ember-app.git"
