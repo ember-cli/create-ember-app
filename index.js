@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
 var execa = require('execa');
+var whoRanMe = require('who-ran-me');
 
 var args = ['new'];
 
-if (process.env._ && !process.env._.match(/(npx|npm)$/)) {
+if (whoRanMe() === 'yarn') {
   args.push('--yarn');
 }
 

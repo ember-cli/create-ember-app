@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "ember-cli": "^3.1.2",
-    "execa": "^0.10.0"
+    "execa": "^0.10.0",
+    "who-ran-me": "^1.0.0"
   }
 }
