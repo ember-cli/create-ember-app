@@ -5,7 +5,8 @@ var whoRanMe = require('who-ran-me');
 
 var args = ['new'];
 
-if (whoRanMe() === 'yarn') {
+// yarn reports the bin script from who-ran-me
+if (['yarn', 'create-ember-app'].includes(whoRanMe())) {
   args.push('--yarn');
 }
 
