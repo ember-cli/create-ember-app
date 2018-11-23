@@ -5,7 +5,8 @@
   "keywords": [
     "ember",
     "ember-cli",
-    "yarn"
+    "yarn",
+    "npm"
   ],
   "homepage": "https://github.com/ember-cli/create-ember-app#readme",
   "bugs": {
@@ -28,6 +29,7 @@
   },
   "dependencies": {
     "ember-cli": "^3.1.2",
-    "execa": "^0.10.0"
+    "execa": "^0.10.0",
+    "who-ran-me": "^1.0.2"
   }
 }
