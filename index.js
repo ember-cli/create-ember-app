@@ -1,7 +1,11 @@
 #!/usr/bin/env node
+const execa = require('execa');
+const resolve = require('resolve');
+const whoRanMe = require('who-ran-me');
+const { dirname, join } = require('path');
 
-var execa = require('execa');
-var whoRanMe = require('who-ran-me');
+var indexFile = resolve.sync('ember-cli', { basedir: __dirname });
+const emberPath = join(dirname(indexFile), '../../bin/ember');
 
 var args = ['new'];
 
@@ -14,7 +18,7 @@ for (var i = 2; i < process.argv.length; i++) {
   args.push(process.argv[i]);
 }
 
-execa('ember', args, { stdio: 'inherit' }).catch((err) => {
+execa(emberPath, args, { stdio: 'inherit' }).catch((err) => {
   console.log('Error while executing ember new:', err.message);
   process.exit(1);
 });
