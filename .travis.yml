@@ -1,0 +1,32 @@
+---
+language: node_js
+node_js:
+  - "8"
+
+sudo: false
+dist: trusty
+
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+  - name: "npm"
+    before_install:
+      - npm config set spin false
+    install:
+      - npm link
+    script:
+      - cd ../
+      - npm init ember-app test-app
+      - cd test-app
+      - "node_modules/.bin/ember -v | grep -q 'ember-cli: 3.6'"
+  - name: "Yarn"
+    install:
+      - yarn && yarn link
+    script:
+      - cd ../
+      - create-ember-app test-app # Cannot use yarn create because of https://github.com/yarnpkg/yarn/issues/6862
+      - cd test-app
+      - "node_modules/.bin/ember -v | grep -q 'ember-cli: 3.6'"

@@ -14,4 +14,7 @@ for (var i = 2; i < process.argv.length; i++) {
   args.push(process.argv[i]);
 }
 
-execa('ember', args, { stdio: 'inherit' });
+execa('ember', args, { stdio: 'inherit' }).catch((err) => {
+  console.log('Error while executing ember new:', err.message);
+  process.exit(1);
+});
