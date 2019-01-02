@@ -16,6 +16,8 @@ matrix:
       - cd ../
       - npm init ember-app test-app
       - cd test-app
+      - "curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest"
+      - "curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest | jq '.tag_name' | grep -o '\\d\\+\\.\\d\\+\\.\\d\\+'`"
       - "export CURRENT_VERSION=`curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest | jq '.tag_name' | grep -o '\\d\\+\\.\\d\\+\\.\\d\\+'`"
       - echo $CURRENT_VERSION
       - node_modules/.bin/ember -v
@@ -28,6 +30,8 @@ matrix:
       - cd ../
       - create-ember-app test-app # Cannot use yarn create because of https://github.com/yarnpkg/yarn/issues/6862
       - cd test-app
+      - "curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest"
+      - "curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest | jq '.tag_name' | grep -o '\\d\\+\\.\\d\\+\\.\\d\\+'`"
       - "export CURRENT_VERSION=`curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest | jq '.tag_name' | grep -o '\\d\\+\\.\\d\\+\\.\\d\\+'`"
       - echo $CURRENT_VERSION
       - node_modules/.bin/ember -v
