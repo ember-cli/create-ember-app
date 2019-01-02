@@ -16,7 +16,10 @@ matrix:
       - cd ../
       - npm init ember-app test-app
       - cd test-app
-      - "node_modules/.bin/ember -v | grep -q 'ember-cli: 3.6'"
+      - "export CURRENT_VERSION=`curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest | jq '.tag_name' | grep -Po '\\d+\\.\\d+\\.\\d+'`"
+      - echo $CURRENT_VERSION
+      - node_modules/.bin/ember -v
+      - "node_modules/.bin/ember -v | grep -q \"ember-cli: $CURRENT_VERSION\""
   - name: "Yarn"
     install:
       - yarn
@@ -25,4 +28,7 @@ matrix:
       - cd ../
       - create-ember-app test-app # Cannot use yarn create because of https://github.com/yarnpkg/yarn/issues/6862
       - cd test-app
-      - "node_modules/.bin/ember -v | grep -q 'ember-cli: 3.6'"
+      - "export CURRENT_VERSION=`curl -H \"Authorization: token $GITHUB_TOKEN\" https://api.github.com/repos/ember-cli/ember-cli/releases/latest | jq '.tag_name' | grep -Po '\\d+\\.\\d+\\.\\d+'`"
+      - echo $CURRENT_VERSION
+      - node_modules/.bin/ember -v
+      - "node_modules/.bin/ember -v | grep -q \"ember-cli: $CURRENT_VERSION\""
