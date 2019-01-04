@@ -1,6 +1,6 @@
 {
   "name": "create-ember-app",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "yarn create ember-app <name>",
   "keywords": [
     "ember",
